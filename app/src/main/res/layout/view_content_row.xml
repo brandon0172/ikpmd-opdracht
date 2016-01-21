@@ -10,17 +10,28 @@
             android:textStyle="italic|bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="15dp"/>
+            android:paddingTop="15dp"
+            android:paddingLeft="15dp" />
 
         <TextView android:id="@+id/subject_ects"
             android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"/>
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp" />
+
+    <TextView android:id="@+id/subject_period"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp" />
 
         <TextView android:id="@+id/subject_grade"
             android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"/>
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp" />
 </LinearLayout>
