@@ -3,6 +3,7 @@ package nl.brandonvanwijk.ikpmd_eindopdracht;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -19,7 +20,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.List;
+
 import nl.brandonvanwijk.ikpmd_eindopdracht.List.CourseListActivity;
+import nl.brandonvanwijk.ikpmd_eindopdracht.Models.CourseModel;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,8 +47,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         if(isOnline() == false) {
-//            Snackbar.make(, "Er is geen internetverbinding", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show();
             Toast.makeText(this, "Geen internetverbinding !", Toast.LENGTH_LONG).show();
         }
 
@@ -57,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-
 
     public boolean isOnline() {
         ConnectivityManager cm =
@@ -106,8 +107,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_camara) {
-                    Log.d("Vakken ingedrukt", "Start CourseListActivity");
-                    startActivity(new Intent(MainActivity.this, CourseListActivity.class));
+            Log.d("Vakken ingedrukt", "Start CourseListActivity");
+            startActivity(new Intent(MainActivity.this, CourseListActivity.class));
         } else if (id == R.id.nav_gallery) {
             Log.d("Visualisatie ingedrukt", "Start ChartActivity");
             startActivity(new Intent(MainActivity.this, ChartActivity.class));

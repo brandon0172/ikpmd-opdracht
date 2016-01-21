@@ -19,17 +19,24 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import nl.brandonvanwijk.ikpmd_eindopdracht.Models.CourseModel;
 
 public class ChartActivity extends AppCompatActivity {
     private PieChart mChart;
     public static final int MAX_ECTS = 60;
     public static int currentEcts = 0;
+    List<CourseModel> vakken;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
-        getEctsFromSharedPref();
+
+        vakken = new ArrayList<>();
+        vakken = CourseModel.getAll();
+
         mChart = (PieChart) findViewById(R.id.chart);
         mChart.setDescription("");
         mChart.setTouchEnabled(false);
@@ -37,38 +44,22 @@ public class ChartActivity extends AppCompatActivity {
         mChart.getLegend().setEnabled(false);
         mChart.setTransparentCircleColor(Color.rgb(130, 130, 130));
         mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
-        setData(currentEcts);
-
-//        Button fab = (Button) findViewById(R.id.plusTwee);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                TextView bsa = (TextView) findViewById(R.id.bsa);
-//                if (currentEcts < MAX_ECTS) {
-//                    setData(currentEcts += 2);
-//                    if(currentEcts >= 50) {
-//                        bsa.setText("Over naar het volgende jaar !");
-//                    } else {
-//                        bsa.setText("Bindend Nagatief Studieadvies!");
-//                    }
-//                } else {
-//                    setData(currentEcts = 0);
-//                }
-//            }
-//        });
-
+        checkGrades();
     }
 
-    public void getEctsFromSharedPref() {
-        SharedPreferences prfs = getSharedPreferences("MY_FILE", MODE_PRIVATE);
-        int ects = prfs.getInt("ects", 0);
+    private void checkGrades() {
 
-        currentEcts = currentEcts += ects;
+        vakken.clear();
+        vakken = CourseModel.getAll();
 
-        System.out.println("CurrentEcts: " + ects);
-    }
-    public static void setEcts(int ects) {
-        currentEcts = currentEcts += ects;
+        int ects = 0;
+        for (CourseModel course : vakken) {
+
+            if (course.getGrade() >= 5.5) {
+                ects += course.getEcts();
+            }
+            setData(ects);
+        }
     }
 
     private void setData(int aantal) {

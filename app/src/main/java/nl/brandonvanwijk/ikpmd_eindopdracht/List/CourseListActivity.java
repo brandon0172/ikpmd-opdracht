@@ -1,6 +1,7 @@
 package nl.brandonvanwijk.ikpmd_eindopdracht.List;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -51,6 +52,20 @@ public class CourseListActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.my_list_view);
 
         vakken = CourseModel.getAll();
+
+        int totalEcts = 0;
+        for(CourseModel course: vakken) {
+
+            if(course.getGrade() >= 5.5) {
+                totalEcts += course.getEcts();
+            }
+            SharedPreferences preferences = getSharedPreferences("MY_FILE", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+
+            editor.putInt("ects", totalEcts);
+            editor.apply();
+
+        }
         courseAdapter = new CourseAdapter(CourseListActivity.this, 0, vakken);
         mListView.setAdapter(courseAdapter);
     }

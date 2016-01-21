@@ -27,6 +27,7 @@ public class InvoerActivity extends AppCompatActivity {
     public static final String PREFS_NAME = "LaunchPreferences";
     AppCompatEditText editText;
     CourseModel course;
+    int totalEcts;
 
 
     @Override
@@ -70,17 +71,6 @@ public class InvoerActivity extends AppCompatActivity {
         } else if(cijferText.length() < 4 && grade <= 10) {
             course.setGrade(grade);
             course.update();
-            if(grade >= 5.5) {
-//                ChartActivity.setEcts(course.getEcts());
-
-                SharedPreferences preferences = getSharedPreferences("MY_FILE", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                int totalEcts = 0;
-                totalEcts = totalEcts += course.getEcts();
-
-                editor.putInt("ects", totalEcts);
-                editor.apply();
-            }
         } else {
             Snackbar snackbar = Snackbar
                     .make((RelativeLayout) findViewById(R.id.vakken_detail_layout),
