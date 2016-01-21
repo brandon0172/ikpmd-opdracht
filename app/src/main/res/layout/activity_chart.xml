@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal">
+    android:layout_gravity="center_horizontal"
+    android:background="@color/colorPrimary">
 
     <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
         android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
@@ -14,18 +15,55 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Voortgang"
+            android:textStyle="italic|bold"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="#000"
             android:layout_gravity="left"
             android:id="@+id/toolbar_title" />
 
 
     </android.support.v7.widget.Toolbar>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rood = Bindend Negatief Studieadvies !"
+        android:textStyle="italic|bold"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FF0000"
+        android:layout_gravity="left"
+        android:id="@+id/rood"
+        android:layout_below="@+id/toolbar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oranje = Tussenjaar !"
+        android:textStyle="italic|bold"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#FFA500"
+        android:layout_gravity="left"
+        android:id="@+id/oranje"
+        android:layout_below="@+id/rood" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Groen = Over naar het volgende jaar !"
+        android:textStyle="italic|bold"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#008000"
+        android:layout_gravity="left"
+        android:id="@+id/groen"
+        android:layout_below="@+id/oranje" />
+
     <com.github.mikephil.charting.charts.PieChart
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/chart" >
+        android:id="@+id/chart"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
     </com.github.mikephil.charting.charts.PieChart>
 
 </RelativeLayout>
