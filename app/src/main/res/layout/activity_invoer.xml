@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimary"
     tools:context="nl.brandonvanwijk.ikpmd_eindopdracht.InvoerActivity">
 
     <LinearLayout
@@ -18,12 +19,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Medium Text"
             android:id="@+id/vakNaam"
 
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/colorAccent" />
+            android:textColor="#000"
+            android:layout_marginTop="120dp" />
 
         <!--<TextView-->
             <!--android:layout_width="wrap_content"-->
@@ -35,18 +37,19 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/vakken_detail_edit_text_container"
-            android:layout_width="123dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp">
 
             <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/vakken_detail_edit_text"
                 android:hint="Cijfer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="#000" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -55,9 +58,11 @@
             android:layout_height="wrap_content"
             android:text="Opslaan"
             android:id="@+id/vakken_detail_button"
-            android:background="@color/colorPrimaryDark"
+            android:background="#000"
             android:allowUndo="true"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:textColor="#fff" />
 
     </LinearLayout>
 </RelativeLayout>

@@ -15,10 +15,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/colorAccent"
+        android:textColor="#000"
         android:text="Vakken"
         android:layout_gravity="left"
-        android:id="@+id/toolbar_title" />
+        android:id="@+id/toolbar_title"
+        android:textStyle="bold|italic"
+        android:singleLine="false" />
 
 
 </android.support.v7.widget.Toolbar>
@@ -28,6 +30,7 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:nestedScrollingEnabled="true"
-        android:contextClickable="false" />
+        android:contextClickable="false"
+        android:footerDividersEnabled="false" />
 
 </LinearLayout>

@@ -16,7 +16,6 @@
         android:id="@+id/my_list_view"
         android:layout_width="fill_parent"
         android:layout_height="483dp"
-        android:textColor="@color/colorPrimaryDark"
         android:nestedScrollingEnabled="true"
         android:contextClickable="false" />
     </RelativeLayout>
