@@ -6,8 +6,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:showIn="@layout/app_bar_main"
-    tools:context=".MainActivity">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_introduction"
+    tools:context="nl.brandonvanwijk.ikpmd_eindopdracht.IntroductionActivity">
+
 
     <ImageView
         android:layout_width="100dp"
@@ -15,48 +17,41 @@
         android:id="@+id/imageView"
         android:src="@drawable/logo2"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Welkom"
-        android:ems="10"
-        android:id="@+id/gebruikersnaam"
+        android:text="Welkom student, vul hieronder jouw naam in"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#000"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="34dp" />
+        android:id="@+id/welkomstBericht"
+        android:layout_above="@+id/naamVeld"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <EditText
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Actueel aantal studiepunten 0/60"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000"
-        android:id="@+id/voortgang"
-        android:layout_marginTop="66dp"
-        android:layout_below="@+id/imageView"
+        android:id="@+id/naamVeld"
+        android:hint="Naam"
+        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Meer informatie"
-        android:id="@+id/meerInfo"
+        android:text="Opslaan"
+        android:id="@+id/saveButton"
         android:background="@color/colorAccent"
         android:allowUndo="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="44dp"
         android:textColor="#fff"
-        android:layout_below="@+id/voortgang"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/naamVeld"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
 
 
 </RelativeLayout>
