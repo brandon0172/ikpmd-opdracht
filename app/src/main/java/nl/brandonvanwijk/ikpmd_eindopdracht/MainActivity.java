@@ -2,6 +2,7 @@ package nl.brandonvanwijk.ikpmd_eindopdracht;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,19 +17,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import nl.brandonvanwijk.ikpmd_eindopdracht.List.CourseListActivity;
+import nl.brandonvanwijk.ikpmd_eindopdracht.Models.CourseModel;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    List<CourseModel> vakken;
+    public static final String PREFS_NAME = "LaunchPreferences";
+    SharedPreferences studentInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        studentInfo = getSharedPreferences(PREFS_NAME, 0);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        vakken = new ArrayList<>();
+        vakken = CourseModel.getAll();
 
 
         if(isOnline() == false) {
@@ -43,6 +59,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+//        final EditText naam = (EditText) findViewById(R.id.gebruikersnaam);
+//
+//        final TextView welcomeStudent = (TextView) findViewById(R.id.studentnaam);
+//
+//        Button checkNaam = (Button) findViewById(R.id.saveName);
+//
+//        checkNaam.
+//
+//        checkNaam.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                studentInfo.edit().putString("naam", String.valueOf(naam.getText())).commit();
+//                studentInfo.edit().putBoolean("new_student", false).commit();
+//            }
+//        });
+
+        TextView actualEc = (TextView) findViewById(R.id.voortgang);
+        actualEc.setText("Aantal actuele studiepunten: " + showActualEcts() + "/60");
     }
 
     public boolean isOnline() {
@@ -55,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -102,6 +138,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private int showActualEcts() {
+        vakken.clear();
+        vakken = CourseModel.getAll();
+
+        int ects = 0;
+        for (CourseModel course : vakken) {
+
+            if (course.getGrade() >= 5.5) {
+                ects += course.getEcts();
+            }
+        }
+        return ects;
     }
 
 }

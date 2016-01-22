@@ -8,4 +8,5 @@
     <string name="title_activity_course_list">CourseListActivity</string>
     <string name="title_activity_invoer">InvoerActivity</string>
     <string name="title_activity_chart">ChartActivity</string>
+    <string name="title_activity_introduction">IntroductionActivity</string>
 </resources>
