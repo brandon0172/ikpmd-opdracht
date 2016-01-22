@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         if(isOnline() == false) {
-            Toast.makeText(this, "Geen internetverbinding!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Geen internetverbinding !", Toast.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
