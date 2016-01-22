@@ -39,9 +39,11 @@ public class CourseAdapter extends ArrayAdapter {
         }
         TextView courseName = (TextView) view.findViewById(R.id.subject_name);
         TextView courseECTS = (TextView) view.findViewById(R.id.subject_ects);
+        TextView coursePeriod = (TextView) view.findViewById(R.id.subject_period);
         TextView courseGrade = (TextView) view.findViewById(R.id.subject_grade);
         courseName.setText(course.getName());
         courseECTS.setText("Ects: " + Integer.toString(course.getEcts()));
+        coursePeriod.setText("Periode: " + course.getPeriod());
         courseGrade.setText("Cijfer: " + Double.toString(course.getGrade()));
 
         view.setOnClickListener(new View.OnClickListener() {

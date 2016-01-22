@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -45,6 +46,7 @@ public class ChartActivity extends AppCompatActivity {
         mChart.setTransparentCircleColor(Color.rgb(130, 130, 130));
         mChart.animateY(1400, Easing.EasingOption.EaseInOutQuad);
         checkGrades();
+        showStudieVoortgang();
     }
 
     private void checkGrades() {
@@ -96,6 +98,19 @@ public class ChartActivity extends AppCompatActivity {
         mChart.setData(data); // bind dataset aan chart.
         mChart.invalidate();  // Aanroepen van een redraw
         Log.d("aantal =", "" + currentEcts);
+    }
+
+    public void showStudieVoortgang() {
+        if(currentEcts < 40) {
+            Toast toast = Toast.makeText(this, "Bindend Negatief Studieadvies ! Dit kan beter !", Toast.LENGTH_LONG);
+            toast.show();
+        } else if(currentEcts > 40 && currentEcts < 50) {
+            Toast toast = Toast.makeText(this, "Je hebt op dit moment een tussenjaar. Nog even doorzetten !", Toast.LENGTH_LONG);
+            toast.show();
+        } else if (currentEcts > 50) {
+            Toast toast = Toast.makeText(this, "Je bent over naar het volgende jaar. Gefelicteerd !", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 }
 

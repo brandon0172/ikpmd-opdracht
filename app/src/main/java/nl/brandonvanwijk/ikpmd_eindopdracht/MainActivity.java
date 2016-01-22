@@ -1,9 +1,7 @@
 package nl.brandonvanwijk.ikpmd_eindopdracht;
 
-
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,10 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import java.util.List;
-
 import nl.brandonvanwijk.ikpmd_eindopdracht.List.CourseListActivity;
-import nl.brandonvanwijk.ikpmd_eindopdracht.Models.CourseModel;
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
