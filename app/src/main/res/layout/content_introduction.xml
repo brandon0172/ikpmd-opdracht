@@ -26,7 +26,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#000"
         android:id="@+id/welkomstBericht"
-        android:layout_above="@+id/editText"
+        android:layout_above="@+id/naamVeld"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp" />
 
@@ -47,10 +47,11 @@
         android:background="@color/colorAccent"
         android:allowUndo="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="44dp"
         android:textColor="#fff"
-        android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/naamVeld"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
 
 
 </RelativeLayout>

@@ -56,7 +56,7 @@ public class InvoerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 saveCijfer();
                 Snackbar snackbar = Snackbar
-                        .make((RelativeLayout)findViewById(R.id.vakken_detail_layout), "Opgeslagen", Snackbar.LENGTH_LONG);
+                        .make((RelativeLayout)findViewById(R.id.vakken_detail_layout), "Cijfer wordt verwerkt", Snackbar.LENGTH_LONG);
                 snackbar.show();
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {

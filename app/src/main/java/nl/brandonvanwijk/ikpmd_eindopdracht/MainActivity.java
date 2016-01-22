@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         studentInfo = getSharedPreferences(PREFS_NAME, 0);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -60,21 +62,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        final EditText naam = (EditText) findViewById(R.id.gebruikersnaam);
-//
-//        final TextView welcomeStudent = (TextView) findViewById(R.id.studentnaam);
-//
-//        Button checkNaam = (Button) findViewById(R.id.saveName);
-//
-//        checkNaam.
-//
-//        checkNaam.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                studentInfo.edit().putString("naam", String.valueOf(naam.getText())).commit();
-//                studentInfo.edit().putBoolean("new_student", false).commit();
-//            }
-//        });
+        Button meerInfo = (Button) findViewById(R.id.meerInfo);
+
+        meerInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ChartActivity.class));
+
+            }
+        });
+
+        TextView naam = (TextView) findViewById(R.id.gebruikersnaam);
+
+        naam.setText("Welkom " + studentInfo.getString("naam", "Student"));
 
         TextView actualEc = (TextView) findViewById(R.id.voortgang);
         actualEc.setText("Aantal actuele studiepunten: " + showActualEcts() + "/60");
