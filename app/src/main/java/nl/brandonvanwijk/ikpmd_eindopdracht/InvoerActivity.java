@@ -40,7 +40,12 @@ public class InvoerActivity extends AppCompatActivity {
         course = CourseModel.find(getIntent().getLongExtra("course_id", 0));
 
         TextView vak = (TextView) findViewById(R.id.vakNaam);
+        TextView periode = (TextView) findViewById(R.id.vakPeriode);
+        TextView ects = (TextView) findViewById(R.id.vakEcts);
         vak.setText(course.getName());
+        periode.setText("Periode " + course.getPeriod());
+        ects.setText("Ects: " + course.getEcts());
+
 
         editText = (AppCompatEditText) findViewById(R.id.vakken_detail_edit_text);
         editText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
